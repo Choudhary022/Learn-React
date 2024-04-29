@@ -1,0 +1,24 @@
+
+
+.header{
+
+    height:"20px";
+    border:1px solid black
+}
+
+.nav-item{
+
+    display: flex;
+    margin:0 5px;
+    list-style: none;
+}
+
+.nav-item >li{
+    margin:0 5px;
+
+}
+
+.logo {
+    max-width:20px;
+    height:20px;
+}
