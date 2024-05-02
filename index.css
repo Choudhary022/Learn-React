@@ -1,24 +1,54 @@
-
-
-.header{
-
-    height:"20px";
-    border:1px solid black
+.header {
+    height: "20px";
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 10px;
 }
 
-.nav-item{
+.nav-item {
 
     display: flex;
-    margin:0 5px;
+    margin: 0 5px;
     list-style: none;
 }
 
-.nav-item >li{
-    margin:0 5px;
+.nav-item>li {
+    margin: 0 5px;
 
 }
 
 .logo {
-    max-width:20px;
-    height:20px;
+    margin-left: 20px;
+    width: 100px;
+    height: 50px;
+}
+
+.res-card {
+    border: 1px solid black;
+    width:250px;
+    height: 250px;
+    padding:5px;
+}
+
+.res-logo{
+    width:100%;
+    height: 150px;
+}
+
+.body{
+margin-top:5px ;    
+}
+
+.search{
+
+    margin-bottom: 5px;
+
+}
+
+.res-description{
+
+    display: flex;
+    gap: 10;
 }

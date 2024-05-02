@@ -2962,9 +2962,9 @@ const Header = ()=>{
         className: "header",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "logo",
                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
                     alt: "error",
+                    className: "logo",
                     src: "https://logos-world.net/wp-content/uploads/2023/03/FoodPanda-Logo.png"
                 }, void 0, false, {
                     fileName: "App.js",
@@ -2983,27 +2983,27 @@ const Header = ()=>{
                         children: "Home"
                     }, void 0, false, {
                         fileName: "App.js",
-                        lineNumber: 17,
+                        lineNumber: 16,
                         columnNumber: 17
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
                         children: "Contact Us"
                     }, void 0, false, {
                         fileName: "App.js",
-                        lineNumber: 18,
+                        lineNumber: 17,
                         columnNumber: 17
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
                         children: "About Us "
                     }, void 0, false, {
                         fileName: "App.js",
-                        lineNumber: 19,
+                        lineNumber: 18,
                         columnNumber: 17
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "App.js",
-                lineNumber: 15,
+                lineNumber: 14,
                 columnNumber: 13
             }, undefined)
         ]
@@ -3014,30 +3014,207 @@ const Header = ()=>{
     }, undefined);
 };
 _c = Header;
-const AppLayout = ()=>{
+const CardsList = [
+    {
+        restaurantName: "Chotu's The Food People",
+        type: "North Indian, Chinese, Biryani",
+        address: "Ghansi Bazaar, Hyderabad",
+        img: "https://b.zmtcdn.com/data/pictures/chains/9/93739/fc0cf5f469a0b7ad3689072652afa20e_o2_featured_v2.jpg",
+        rating: 3.9
+    },
+    {
+        restaurantName: "New King Safina Hotel",
+        type: "Mughlai, Biryani, North Indian",
+        address: "Charminar, Hyderabad",
+        img: "https://b.zmtcdn.com/data/pictures/9/95549/f12e393585d603571be433949aa776fe.jpg?output-format=webp&fit=around|771.75:416.25&crop=771.75:416.25;*,*",
+        rating: 3.8
+    },
+    {
+        restaurantName: "Pista House Bakery",
+        type: "Bakery, Desserts, Shawarma, Sandwich, Pizza, Fast Food, Salad, Beverages",
+        address: "Charminar, Hyderabad",
+        img: "https://b.zmtcdn.com/data/pictures/chains/8/19937288/b8f98cd0239c1792920ffd087a83f9fa_o2_featured_v2.jpg",
+        rating: 4.3
+    },
+    {
+        restaurantName: "Hotel Shadab",
+        type: "North Indian, Mughlai, Kebab, Chinese, Biryani, Fast Food, Beverages",
+        address: "Ghansi Bazaar, Hyderabad",
+        img: "https://b.zmtcdn.com/data/pictures/chains/1/91711/f3704598c336542166b781026fc5ad4b_o2_featured_v2.jpg",
+        rating: 4.3
+    },
+    {
+        restaurantName: "MS Mandi & Shawarma",
+        type: "North Indian, Mandi, Fast Food, Pizza, Shawarma, Burger, Shake, Beverages",
+        address: "charminar Hyderabad",
+        img: "https://b.zmtcdn.com/data/pictures/1/19497661/f3e30f26bacec0c1792418bd23df5759_o2_featured_v2.jpg",
+        rating: 3.8
+    },
+    {
+        restaurantName: "KFC",
+        type: "Burger, Fast Food, Biryani, Desserts, Beverages",
+        address: "Abids, Hyderabad",
+        img: "https://b.zmtcdn.com/data/pictures/chains/5/90195/3b4d0d9afcd01700cbb5d580cf43fd92_o2_featured_v2.jpg",
+        rating: 3.9
+    },
+    {
+        restaurantName: "Scoops Ice Cream",
+        type: "Ice Cream, Desserts, Pizza",
+        address: "Charminar, Hyderabad",
+        img: "https://b.zmtcdn.com/data/pictures/chains/9/91559/1ea696d2e09e937df6840d5c6e76637e_o2_featured_v2.jpg",
+        rating: 4.0
+    },
+    {
+        restaurantName: "McDonald's",
+        type: "Burger, Fast Food, Beverages",
+        address: "MPM Mall, Abids, Hyderabad",
+        img: "https://b.zmtcdn.com/data/pictures/4/19026144/92237989e8a919c0fcfdf3d9f8da3fb0_o2_featured_v2.jpg",
+        rating: 4.5
+    },
+    {
+        restaurantName: "Nizams Khana Ghar",
+        type: "South Indian, Chinese, Street Food",
+        address: "Falaknuma, Hyderabad",
+        img: "https://b.zmtcdn.com/data/pictures/6/19903636/27b4443f3be7cd8b270f29cd40467c37_o2_featured_v2.jpg",
+        rating: 4.1
+    },
+    {
+        restaurantName: "Karachi Bakery",
+        type: "Bakery, Chinese, Pizza, Sandwich, Italian, Wraps, Street Food, Fast Food",
+        address: "Nampally, Hyderabad",
+        img: "https://b.zmtcdn.com/data/pictures/3/20530203/4e385a41570e65393acd7ed2b0229ff6_o2_featured_v2.jpg",
+        rating: 4.0
+    }
+];
+const RestaurantCard = ()=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "App-Layout",
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(Header, {}, void 0, false, {
+        className: "res-Container",
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+            className: "res-card",
+            children: [
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                    className: "res-logo",
+                    alt: "no image",
+                    src: "https://b.zmtcdn.com/data/pictures/chains/7/90517/f880231116d2f74b1a9251eecae2d763_o2_featured_v2.jpg"
+                }, void 0, false, {
+                    fileName: "App.js",
+                    lineNumber: 107,
+                    columnNumber: 13
+                }, undefined),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                    className: "res-description",
+                    children: [
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            children: "Shah Ghouse Hotel & Restaurant"
+                        }, void 0, false, {
+                            fileName: "App.js",
+                            lineNumber: 110,
+                            columnNumber: 17
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            children: "4.2"
+                        }, void 0, false, {
+                            fileName: "App.js",
+                            lineNumber: 111,
+                            columnNumber: 17
+                        }, undefined)
+                    ]
+                }, void 0, true, {
+                    fileName: "App.js",
+                    lineNumber: 109,
+                    columnNumber: 13
+                }, undefined),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                    children: "30 minutes"
+                }, void 0, false, {
+                    fileName: "App.js",
+                    lineNumber: 113,
+                    columnNumber: 13
+                }, undefined)
+            ]
+        }, void 0, true, {
             fileName: "App.js",
-            lineNumber: 33,
-            columnNumber: 13
+            lineNumber: 105,
+            columnNumber: 9
         }, undefined)
     }, void 0, false, {
         fileName: "App.js",
-        lineNumber: 31,
+        lineNumber: 103,
+        columnNumber: 13
+    }, undefined);
+};
+_c1 = RestaurantCard;
+const Body = ()=>{
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "body",
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "search",
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                    placeholder: "search "
+                }, void 0, false, {
+                    fileName: "App.js",
+                    lineNumber: 124,
+                    columnNumber: 13
+                }, undefined)
+            }, void 0, false, {
+                fileName: "App.js",
+                lineNumber: 123,
+                columnNumber: 9
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "restaurant-container",
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(RestaurantCard, {}, void 0, false, {
+                    fileName: "App.js",
+                    lineNumber: 128,
+                    columnNumber: 13
+                }, undefined)
+            }, void 0, false, {
+                fileName: "App.js",
+                lineNumber: 127,
+                columnNumber: 9
+            }, undefined)
+        ]
+    }, void 0, true, {
+        fileName: "App.js",
+        lineNumber: 122,
+        columnNumber: 13
+    }, undefined);
+};
+_c2 = Body;
+const AppLayout = ()=>{
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "App-Layout",
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(Header, {}, void 0, false, {
+                fileName: "App.js",
+                lineNumber: 140,
+                columnNumber: 13
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(Body, {}, void 0, false, {
+                fileName: "App.js",
+                lineNumber: 141,
+                columnNumber: 13
+            }, undefined)
+        ]
+    }, void 0, true, {
+        fileName: "App.js",
+        lineNumber: 139,
         columnNumber: 9
     }, undefined);
 };
-_c1 = AppLayout;
+_c3 = AppLayout;
 const root = (0, _clientDefault.default).createRoot(document.getElementById("demo"));
 root.render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(AppLayout, {}, void 0, false, {
     fileName: "App.js",
-    lineNumber: 40,
+    lineNumber: 148,
     columnNumber: 13
 }, undefined));
-var _c, _c1;
+var _c, _c1, _c2, _c3;
 $RefreshReg$(_c, "Header");
-$RefreshReg$(_c1, "AppLayout");
+$RefreshReg$(_c1, "RestaurantCard");
+$RefreshReg$(_c2, "Body");
+$RefreshReg$(_c3, "AppLayout");
 
   $parcel$ReactRefreshHelpers$c1db.postlude(module);
 } finally {
