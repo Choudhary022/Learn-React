@@ -1,31 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-
-import RestaurantCard from "./components/Crad";
-
-const Header = () => {
-
-    return (
-        <div className="header">
-
-            <div >
-                <img alt="error" className="logo" src="https://logos-world.net/wp-content/uploads/2023/03/FoodPanda-Logo.png" />
-            </div>
-
-            <ul className="nav-item">
-
-                <li>Home</li>
-                <li>Contact Us</li>
-                <li>About Us </li>
-
-            </ul>
-
-        </div>
-    )
-}
+import Header from "./components/Header";
+import Body from "./components/Body";
 
 
-const CardsList = [{
+export const CardsList = [{
     restaurantName: "Chotu's The Food People",
     type: "North Indian, Chinese, Biryani",
     address: "Ghansi Bazaar, Hyderabad",
@@ -106,23 +85,6 @@ const CardsList = [{
     deliveryTime: 30
 }
 ];
-
-
-
-const Body = () => {
-
-    return (<div className="body">
-        <div className="search">
-            <input placeholder="search " />
-        </div>
-
-        <div className="restaurant-container">
-            {CardsList.map(res => <RestaurantCard restaurant={res} />)}
-
-        </div>
-
-    </div>)
-}
 
 
 const AppLayout = () => {

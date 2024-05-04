@@ -1,4 +1,5 @@
-const restaurants = [
+
+const RESTAURANT_LIST = [
     {
         "info": {
             "id": "608605",
@@ -1736,4 +1737,7 @@ const restaurants = [
             "link": "https://www.swiggy.com/restaurants/mcdonalds-gourmet-burger-collection-hitech-city-madhapur-hyderabad-395243",
             "type": "WEBLINK"
         }
-    }]
+    }];
+
+
+export default RESTAURANT_LIST;
