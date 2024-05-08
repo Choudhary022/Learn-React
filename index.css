@@ -32,10 +32,13 @@
     margin: 2px;
     transition: box-shadow 0.3s ease;
     background-color: bisque;
+    position: relative;
 }
 
 .res-card:hover {
-    border: 0.1px solid black;
+    border: 0.1px solid grey;
+    z-index: 2;
+    cursor: pointer;
 }
 
 .res-logo {
@@ -51,12 +54,34 @@
     margin-bottom: 5px;
 }
 
-.res-description {
-    display: flex;
-    gap: 10;
+.res-name {
+    font-weight: 600;
 }
 
 .restaurant-container {
     display: flex;
     flex-wrap: wrap;
+}
+
+.skelton-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.ratingIcon{
+    width:22px
+
+}
+.skelton-Card {
+    background-color: #F0F0F0;
+    width: 250px;
+    height: 250px;
+    margin: 5px;
+}
+
+.res-cuisines {
+    width: 230px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
