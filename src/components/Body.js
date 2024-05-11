@@ -4,6 +4,7 @@ import { SWIGGY_API_URL } from "../utils/constants";
 
 import RestaurantCard from "./RestaurantCard";
 import SkeltonCard from "./SkeltenCard";
+import { Link } from "react-router-dom";
 
 
 
@@ -57,7 +58,7 @@ const Body = () => {
 
         <div className="restaurant-container">
           {restaurants.map((res) => (
-            <RestaurantCard restaurant={res.info} key={res.info.id} />
+            <Link key={res.info.id} to={"/restaurant/" + res.info.id}> <RestaurantCard restaurant={res.info} /></Link>
           ))}
         </div>
 
