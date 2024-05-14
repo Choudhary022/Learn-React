@@ -1,14 +1,13 @@
+import User from "./User"
+import UserClass from "./UserClass";
 
+export const About = () => {
 
-
- export const About = () => {
-
-
-    return (<>
-        this is about component
-
-    </>)
+    return (<div>
+        This is about component
+        {/* <User  name={"Akash Chouodhary (function) "} location={"Hyderabad"}/> */}
+        <UserClass name={"Akash Choudhary (class)"} location={"Hyderabad"}/>
+    </div>)
 }
 
 export default About;
-

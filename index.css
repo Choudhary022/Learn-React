@@ -111,3 +111,12 @@ a {
     display: flex;
     gap: 8;
 }
+
+
+/*  About Page */
+
+.User-container{
+    border:1px solid grey;
+    padding:10px;
+    margin-top: 5px;
+}

@@ -10,7 +10,7 @@ import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
 import Error from "./components/Error";
-import About from "./components/about";
+import About from "./components/About";
 import Contact from "./components/Contact";
 
 import RestaurantDetails from "./components/restaurantDetail";
