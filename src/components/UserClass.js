@@ -4,22 +4,20 @@ class UserClass extends React.Component {
 
     constructor(props) {
         super(props);
-
-        this.state={
-            count:0
+        this.state = {
+            count: 0
         }
     }
 
 
     render() {
-
         const { name, location } = this.props;
-        const {count}=this.state;
+        const { count } = this.state;
         return (<div className="User-container">
             <h2>Count : {count}</h2>
-            <button onClick={()=>{
+            <button onClick={() => {
                 this.setState({
-                    count:this.state.count+1
+                    count: this.state.count + 1
                 })
             }}>Count +</button>
             <div> Name : {name}  </div>
