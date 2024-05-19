@@ -8,6 +8,8 @@ import Menu from "./Menu";
 
 import useRestaurantDetails from "../../utils/useRestaurantDetail";
 
+import { CDN_URL } from "../../utils/constants";
+
 const RestaurantDetails = () => {
     const { resId } = useParams();
 
@@ -37,18 +39,24 @@ const RestaurantDetails = () => {
         <div className="restaurant-detail-container">
             <h2>{name}</h2>
             <div className="restaurant-infoBox">
-                <div className="restaurant-ratings">
-                    <img className="ratingIcon" src={ratingIcon} />
-                    <div>{avgRating}</div>
-                    <div>({totalRatingsString}).</div>
-                    <div>{costForTwoMessage}</div>
+                <div style={{ display: "flex", justifyContent: "space-between" }}>
+                    <div>
+                        <div className="restaurant-ratings">
+                            <img className="ratingIcon" src={ratingIcon} />
+                            <div>{avgRating}</div>
+                            <div>({totalRatingsString}).</div>
+                            <div>{costForTwoMessage}</div>
+                        </div>
+                        <div style={{ paddingTop: "15px", display: "flex", gap: 5 }}>
+                            <div>{city}-</div>
+                            <div>{locality}</div>
+                        </div>
+                        <div style={{ paddingTop: "10px" }}>Deliver in : {sla.slaString}</div>
+                    </div>
+                    <img style={{ width: "70px" }} src={CDN_URL + cloudinaryImageId} />
                 </div>
-                <div style={{ paddingTop: "15px", display: "flex", gap: 5 }}>
-                    <div>{city}-</div>
-                    <div>{locality}</div>
-                </div>
-                <div style={{ paddingTop: "10px" }}>Deliver in : {sla.slaString}</div>
             </div>
+
             <Menu restaurantMenu={restaurantMenu} />
         </div>
     )

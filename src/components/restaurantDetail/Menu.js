@@ -3,13 +3,6 @@ import ItemsAccordion from "./ItemsAccordion";
 
 const Menu = ({ restaurantMenu }) => {
 
-
-    console.log("restaurant Menu : ", restaurantMenu);
-
-    console.log("restaurant Menu : ", restaurantMenu[0].card);
-
-
-
     return (<div>
         <h4 style={{ textAlign: "center" }}>Menu</h4>
 
