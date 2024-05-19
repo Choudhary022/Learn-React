@@ -1,4 +1,4 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import {
     createBrowserRouter,
     RouterProvider,
@@ -12,13 +12,21 @@ import Body from "./components/Body";
 import Error from "./components/Error";
 import About from "./components/About";
 import Contact from "./components/Contact";
+import useOnlineStatus from "./utils/useOnlineStatus";
 
 import RestaurantDetails from "./components/restaurantDetail";
 
+
+const Grocery = lazy(() => import("./components/Grocery"))
+
 const AppLayout = () => {
+
+    const onlineStatus = useOnlineStatus();
+
     return (
         <div className="App-Layout">
             <Header />
+            {!onlineStatus && <h1>You are offline, please check your Internet !!</h1>}
             <Outlet />
         </div>
     )
@@ -42,8 +50,15 @@ const router = createBrowserRouter([
                 element: <Contact />
             },
             {
-                path:"/restaurant/:resId",
-                element:<RestaurantDetails />
+                path: "/restaurant/:resId",
+                element: <RestaurantDetails />
+            },
+            {
+                path: "/grocery",
+                element: 
+                <Suspense fallback={<h1>Loading...</h1>}>
+                    <Grocery />
+                </Suspense>
             }
         ],
         errorElement: <Error />
@@ -52,9 +67,4 @@ const router = createBrowserRouter([
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('demo'));
-root.render(
-    <>
-
-        <RouterProvider router={router} />
-    </>
-);
+root.render(<RouterProvider router={router} />);

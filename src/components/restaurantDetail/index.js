@@ -1,46 +1,25 @@
-import { useEffect, useState } from "react";
-import { RESTAURANT_DETAILS_URL } from "../../utils/constants";
-
 import { useParams } from "react-router-dom";
 
 import ratingIcon from "../../../assests/Icon/ratingIcon.png";
 
 import SkeltonCard from "../SkeltenCard";
+
 import Menu from "./Menu";
+
+import useRestaurantDetails from "../../utils/useRestaurantDetail";
 
 const RestaurantDetails = () => {
     const { resId } = useParams();
 
-    const [restaurantInfo, setRestaurantInfo] = useState(null);
-    const [restaurantMenu, setRestaurantMenu] = useState(null);
+    const { resInfo, restaurantMenu } = useRestaurantDetails(resId);
 
-    useEffect(() => {
-        fetchRestaurantDetails();
-    }, [resId]);
-
-    const fetchRestaurantDetails = async () => {
-        const result = await fetch(RESTAURANT_DETAILS_URL + resId);
-
-        const restaurantDetailsJson = await result.json();
-
-        // console.log("restaurant : ", restaurantDetailsJson.data.cards[4]?.groupedCard?.cardGroupMap.REGULAR.cards);
-        setRestaurantInfo(restaurantDetailsJson?.data?.cards[2]?.card?.card?.info);
-        setRestaurantMenu(
-            restaurantDetailsJson?.data?.cards[4]?.groupedCard?.cardGroupMap.REGULAR
-                .cards
-        );
-    };
-
-    if (restaurantInfo === null) {
+    if (resInfo === undefined) {
         return (
             <>
                 <SkeltonCard />
             </>
         );
     }
-
-
-    console.log(typeof restaurantMenu);
 
     const {
         name,
@@ -52,7 +31,7 @@ const RestaurantDetails = () => {
         locality,
         totalRatingsString,
         sla,
-    } = restaurantInfo;
+    } = resInfo;
 
     return (
         <div className="restaurant-detail-container">
@@ -72,7 +51,7 @@ const RestaurantDetails = () => {
             </div>
             <Menu restaurantMenu={restaurantMenu} />
         </div>
-    );
-};
+    )
+}
 
 export default RestaurantDetails;
