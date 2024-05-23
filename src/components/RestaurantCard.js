@@ -14,16 +14,16 @@ const RestaurantCard = ({ restaurant }) => {
 
 
     return (
-        <div className="res-Container">
-            <div className="res-card">
-                <img className="res-logo" alt="no image" src={CDN_URL + cloudinaryImageId} />
-                <div className="res-name">{name}</div>
-                <div style={{ display: "flex", gap: 5, alignItems:'center'}}>
-                <img  className="ratingIcon" src={ratingIcon} />
+        <div className="w-44 text-ellipsis m-2 bg-gray-300 hover:bg-gray-500 p-1 rounded-md">
+            <div className="">
+                <img className="rounded-md"  alt="no image" src={CDN_URL + cloudinaryImageId} />
+                <h2 className="font-bold w-40 truncate">{name}</h2>
+                <div className="flex space-x-1 ">
+                    <img className="w-5" src={ratingIcon} />
                     <div>{avgRating}.</div>
                     <div>{sla.deliveryTime} minutes</div>
                 </div>
-                <div className="res-cuisines">{cuisines.join(',')}</div>
+                <div className="w-32 truncate">{cuisines.join(',')}</div>
                 <div>{areaName}</div>
             </div>
         </div >

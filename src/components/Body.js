@@ -7,8 +7,10 @@ import RestaurantCard from "./RestaurantCard";
 import SkeltonCard from "./SkeltenCard";
 
 const Body = () => {
-  const [restaurants, setRestaurants] = useState([]);
 
+  const [restaurants, setRestaurants] = useState([]);
+  const [filteredRestaurant, setFilteredRestaurant] = useState([]);
+  const [searchRestaurant, setSearchRestaurant] = useState('');
 
   useEffect(() => {
     const fetchData = async () => {
@@ -19,6 +21,8 @@ const Body = () => {
           json.data.success.cards[1].card.card.gridElements.infoWithStyle
             .restaurants
         );
+        setFilteredRestaurant(json.data.success.cards[1].card.card.gridElements.infoWithStyle
+          .restaurants);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -27,18 +31,28 @@ const Body = () => {
     fetchData();
   }, []);
 
+  
+  const handleSearchRestaurant = () => {
+    let filteredRes = restaurants.filter(res => res.info.name
+      .toLowerCase().includes(searchRestaurant.toLocaleLowerCase()));
+    setFilteredRestaurant(filteredRes);
+  }
+
+
 
   return (
-    <div className="body">
-      {restaurants.length == 0 ? (
+    <div className="px-2">
+      {filteredRestaurant.length == 0 ? (
         <SkeltonCard />
       ) : (
         <>
-          <div className="search">
-            <input placeholder="search " />
+          <div className="mb-5  flex gap-3">
+            <input className="border p-1" placeholder="Search restaurant"
+              onChange={(event) => setSearchRestaurant(event.target.value)} />
+            <button className="p-2 bg-orange-400" onClick={handleSearchRestaurant}>search</button>
           </div>
-          <div className="restaurant-container">
-            {restaurants.map((res) => (
+          <div className="flex flex-wrap ">
+            {filteredRestaurant.map((res) => (
               <Link key={res.info.id} to={"/restaurant/" + res.info.id}>
                 <RestaurantCard restaurant={res.info} />
               </Link>
