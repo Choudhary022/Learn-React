@@ -2,9 +2,9 @@ import { APP_LOGO_URL } from "../utils/constants";
 import { Link } from "react-router-dom";
 
 const Header = () => {
-    return ( 
+    return (
         <div className="flex justify-between
-         items-center bg-gray-100 shadow-lg px-2 mb-5">
+         items-center shadow-lg px-2 mb-5">
             <div>
                 <Link to="/"> <img alt="error" className="w-28 mb-2" src={APP_LOGO_URL} /></Link>
             </div>
@@ -12,7 +12,7 @@ const Header = () => {
                 <li> <Link to="/"> Home</Link></li>
                 <li> <Link to="/contact-us">Contact Us</Link></li>
                 <li> <Link to="/about">About Us </Link></li>
-                 <li> <Link to="/grocery">Grocery</Link></li>
+                <li> <Link to="/grocery">Grocery</Link></li>
             </ul>
         </div>
     )

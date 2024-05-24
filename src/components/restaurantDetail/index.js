@@ -36,28 +36,29 @@ const RestaurantDetails = () => {
     } = resInfo;
 
     return (
-        <div className="restaurant-detail-container">
-            <h2>{name}</h2>
-            <div className="restaurant-infoBox">
-                <div style={{ display: "flex", justifyContent: "space-between" }}>
+        <div className="mx-10">
+            <h2 className="font-bold mb-2">{name}</h2>
+            <div className="shadow-lg p-2 border border-grey rounded-lg ">
+                <div className="flex justify-between">
                     <div>
-                        <div className="restaurant-ratings">
-                            <img className="ratingIcon" src={ratingIcon} />
+                        <div className="flex flex-wrap gap-1 ">
+                            <img className="w-5" src={ratingIcon} />
                             <div>{avgRating}</div>
                             <div>({totalRatingsString}).</div>
                             <div>{costForTwoMessage}</div>
                         </div>
-                        <div style={{ paddingTop: "15px", display: "flex", gap: 5 }}>
+                        <div className="flex pt-4 gap-1" >
                             <div>{city}-</div>
                             <div>{locality}</div>
                         </div>
-                        <div style={{ paddingTop: "10px" }}>Deliver in : {sla.slaString}</div>
+                        <div className="pt-4">Deliver in : {sla.slaString}</div>
                     </div>
-                    <img style={{ width: "70px" }} src={CDN_URL + cloudinaryImageId} />
+                    <img className="rounded-md w-28" src={CDN_URL + cloudinaryImageId} />
                 </div>
             </div>
 
             <Menu restaurantMenu={restaurantMenu} />
+
         </div>
     )
 }

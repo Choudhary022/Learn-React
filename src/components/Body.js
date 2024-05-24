@@ -31,14 +31,20 @@ const Body = () => {
     fetchData();
   }, []);
 
-  
+
   const handleSearchRestaurant = () => {
     let filteredRes = restaurants.filter(res => res.info.name
       .toLowerCase().includes(searchRestaurant.toLocaleLowerCase()));
     setFilteredRestaurant(filteredRes);
   }
 
-
+  /**
+   * @returns restaurant who has more than 4 rating
+   */
+  const handleTopRatedRestaurant=()=>{
+    let filteredRes = restaurants.filter(res=>res.info.avgRating>=4.3)
+    setFilteredRestaurant(filteredRes);
+  }
 
   return (
     <div className="px-2">
@@ -50,6 +56,8 @@ const Body = () => {
             <input className="border p-1" placeholder="Search restaurant"
               onChange={(event) => setSearchRestaurant(event.target.value)} />
             <button className="p-2 bg-orange-400" onClick={handleSearchRestaurant}>search</button>
+
+            <button className="p-2  bg-orange-400" onClick={handleTopRatedRestaurant} >Top rated restaurant</button>
           </div>
           <div className="flex flex-wrap ">
             {filteredRestaurant.map((res) => (
