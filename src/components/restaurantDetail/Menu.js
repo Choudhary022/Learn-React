@@ -10,8 +10,10 @@ const Menu = ({ restaurantMenu }) => {
                 return null;
             }
             const { title, itemCards } = res.card.card;
+
+            console.log("card Items : ",itemCards);
             return (<div key={index}>
-                <ItemsAccordion itemCards={itemCards} title={title} />
+                <ItemsAccordion itemCards={itemCards} title={title}  index={index}/>
             </div>)
         })}
     </div>)
