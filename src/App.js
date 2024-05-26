@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 
 import ReactDOM from "react-dom/client";
+import { UserProvider } from "./utils/context/UserContext";
 
 import Header from "./components/Header";
 import Body from "./components/Body";
@@ -55,10 +56,10 @@ const router = createBrowserRouter([
             },
             {
                 path: "/grocery",
-                element: 
-                <Suspense fallback={<h1>Loading...</h1>}>
-                    <Grocery />
-                </Suspense>
+                element:
+                    <Suspense fallback={<h1>Loading...</h1>}>
+                        <Grocery />
+                    </Suspense>
             }
         ],
         errorElement: <Error />
@@ -67,4 +68,8 @@ const router = createBrowserRouter([
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('demo'));
-root.render(<RouterProvider router={router} />);
+root.render(
+    // <UserProvider>
+        <RouterProvider router={router} />
+    // </UserProvider>
+);

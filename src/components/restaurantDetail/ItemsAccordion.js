@@ -30,7 +30,7 @@ const ItemsAccordion = (props) => {
 
             {showCard && <>
                 {itemCards.map((item, index) => {
-                    return <DishCard item={item} index={index} />
+                    return <DishCard item={item} index={index} key={index} />
                 })}
             </>}
         </div>
