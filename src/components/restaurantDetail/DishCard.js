@@ -1,5 +1,5 @@
 import { CDN_URL } from "../../utils/constants";
-import ratingIcon from "../../../assests/Icon/ratingIcon.png"
+import ratingIcon from "../../../assests/Icon/ratingIcon.png";
 
 const DishCard = ({ item }) => {
 

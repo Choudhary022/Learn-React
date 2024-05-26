@@ -1,23 +1,18 @@
-import { useState } from "react";
 import downArrow from "../../../assests/Icon/down-arrow.png"
 import UpArrow from "../../../assests/Icon/Up-arrow.png"
 import DishCard from "./DishCard";
 
-const ItemsAccordion = ({ itemCards, title }) => {
+const ItemsAccordion = (props) => {
 
-    const [cardId, setCardId] = useState(null);
-
+    const { itemCards, title, showCard, setCardTitle } = props;
 
     const handleExpandRestaurantList = () => {
-        cardId ? setCardId(null) : setCardId(title);
+        showCard ? setCardTitle(null) : setCardTitle(title);
     }
 
-    console.log(" cardId :",cardId,"tittle :",title);
     if (itemCards == undefined) {
         return <></>
     }
-
-    console.log("condition : ",cardId===title);
 
     return (
         <div className="border border-grey shadow-lg mb-5 pb-1">
@@ -26,17 +21,18 @@ const ItemsAccordion = ({ itemCards, title }) => {
                 className="flex justify-between  p-2"
             >
                 <h2 className="font-bold">{title}({itemCards?.length})</h2>
-                {cardId ?
-                 <img className="h-5 cursor-pointer" src={UpArrow} onClick={() => setCardId(null)} />
-                    : <img className="h-5 cursor-pointer" src={downArrow} onClick={() => setCardId(title)} />
+                {showCard ?
+                    <img className="h-5 cursor-pointer" src={UpArrow} onClick={() => setCardTitle(null)} />
+                    : <img className="h-5 cursor-pointer" src={downArrow} onClick={() => setCardTitle(title)} />
                 }
             </div>
 
-            {cardId===title ? <>
+
+            {showCard && <>
                 {itemCards.map((item, index) => {
                     return <DishCard item={item} index={index} />
                 })}
-            </> : null}
+            </>}
         </div>
     )
 }
