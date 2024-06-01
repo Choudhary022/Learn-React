@@ -4,19 +4,17 @@ import {
     RouterProvider,
     Outlet
 } from "react-router-dom";
-
 import ReactDOM from "react-dom/client";
-import { UserProvider } from "./utils/context/UserContext";
-
 import Header from "./components/Header";
 import Body from "./components/Body";
 import Error from "./components/Error";
 import About from "./components/About";
+import Cart from "./components/Cart";
 import Contact from "./components/Contact";
 import useOnlineStatus from "./utils/useOnlineStatus";
-
 import RestaurantDetails from "./components/restaurantDetail";
-
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
 
 const Grocery = lazy(() => import("./components/Grocery"))
 
@@ -51,6 +49,10 @@ const router = createBrowserRouter([
                 element: <Contact />
             },
             {
+            path: '/cart',
+            element: <Cart />
+            },
+            {
                 path: "/restaurant/:resId",
                 element: <RestaurantDetails />
             },
@@ -69,7 +71,7 @@ const router = createBrowserRouter([
 
 const root = ReactDOM.createRoot(document.getElementById('demo'));
 root.render(
-    // <UserProvider>
+    <Provider store={appStore}>
         <RouterProvider router={router} />
-    // </UserProvider>
+    </Provider>
 );
