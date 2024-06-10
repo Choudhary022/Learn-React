@@ -16,6 +16,7 @@ import RestaurantDetails from "./components/restaurantDetail";
 import { Provider } from "react-redux";
 import appStore from "./utils/appStore";
 
+// to create a separate bundle
 const Grocery = lazy(() => import("./components/Grocery"))
 
 const AppLayout = () => {
@@ -49,8 +50,8 @@ const router = createBrowserRouter([
                 element: <Contact />
             },
             {
-            path: '/cart',
-            element: <Cart />
+                path: '/cart',
+                element: <Cart />
             },
             {
                 path: "/restaurant/:resId",

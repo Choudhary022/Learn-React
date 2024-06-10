@@ -1,15 +1,20 @@
 const SkeltonCard = () => {
+    console.log("skelton card");
     return (
-        <div className="skelton-container">
-            <div className="skelton-Card"></div>
-            <div className="skelton-Card"></div>
-            <div className="skelton-Card"></div>
-            <div className="skelton-Card"></div>
-            <div className="skelton-Card"></div>
-            <div className="skelton-Card"></div>
-            <div className="skelton-Card"></div>
-            <div className="skelton-Card"></div>
-            <div className="skelton-Card"></div>
+        <div className="flex flex-wrap">
+            <div className="w-44 mr-5 mt-5  shadow-lg bg-gray-300 h-44"></div>
+            <div className="w-44 mr-5 mt-5  shadow-lg bg-gray-300 h-44"></div>
+            <div className="w-44 mr-5 mt-5  shadow-lg bg-gray-300 h-44"></div>
+            <div className="w-44 mr-5 mt-5  shadow-lg bg-gray-300 h-44"></div>
+            <div className="w-44 mr-5 mt-5  shadow-lg bg-gray-300 h-44"></div>
+            <div className="w-44 mr-5 mt-5  shadow-lg bg-gray-300 h-44"></div>
+            <div className="w-44 mr-5 mt-5  shadow-lg bg-gray-300 h-44"></div>
+            <div className="w-44 mr-5 mt-5  shadow-lg bg-gray-300 h-44"></div>
+            <div className="w-44 mr-5 mt-5  shadow-lg bg-gray-300 h-44"></div>
+            <div className="w-44 mr-5 mt-5  shadow-lg bg-gray-300 h-44"></div>
+            <div className="w-44 mr-5 mt-5  shadow-lg bg-gray-300 h-44"></div>
+            <div className="w-44 mr-5 mt-5  shadow-lg bg-gray-300 h-44"></div>
+            <div className="w-44 mr-5 mt-5  shadow-lg bg-gray-300 h-44"></div>
         </div>
     );
 };

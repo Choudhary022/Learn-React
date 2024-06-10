@@ -36,7 +36,7 @@ const RestaurantDetails = () => {
     } = resInfo;
 
     return (
-        <div className="mx-10">
+        <div className="mx-36">
             <h2 className="font-bold mb-2">{name}</h2>
             <div className="shadow-lg p-2 border border-grey rounded-lg ">
                 <div className="flex justify-between">

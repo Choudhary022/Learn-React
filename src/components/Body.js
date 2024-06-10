@@ -41,16 +41,18 @@ const Body = () => {
   /**
    * @returns restaurant who has more than 4 rating
    */
-  const handleTopRatedRestaurant=()=>{
-    let filteredRes = restaurants.filter(res=>res.info.avgRating>=4.3)
+  const handleTopRatedRestaurant = () => {
+    let filteredRes = restaurants.filter(res => res.info.avgRating >= 4.3)
     setFilteredRestaurant(filteredRes);
   }
 
+  console.log("filteredRestaurants : ", filteredRestaurant);
+
   return (
     <div className="px-2">
-      {filteredRestaurant.length == 0 ? (
+      {filteredRestaurant.length == 0 ?
         <SkeltonCard />
-      ) : (
+        :
         <>
           <div className="mb-5  flex gap-3">
             <input className="border p-1" placeholder="Search restaurant"
@@ -67,7 +69,7 @@ const Body = () => {
             ))}
           </div>
         </>
-      )}
+      }
     </div>
   )
 }
