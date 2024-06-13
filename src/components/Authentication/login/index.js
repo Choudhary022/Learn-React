@@ -3,10 +3,23 @@ import { GoogleLogin } from "@react-oauth/google";
 import { jwtDecode } from "jwt-decode";
 import { useDispatch } from "react-redux";
 import { loginUser } from "../../../utils/store/userSlice";
+import { useSelector } from "react-redux";
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
 
     const dispatch = useDispatch();
+
+    const navigate = useNavigate();
+
+    const userProfile = useSelector((store) => store.user.userProfile)
+
+    useEffect(() => {
+        if (userProfile) {
+
+            navigate('/')
+        }
+    }, [userProfile])
 
     const responseMessage = (response) => {
         dispatch(loginUser(jwtDecode(response.credential)))
