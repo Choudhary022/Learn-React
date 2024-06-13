@@ -1,23 +1,23 @@
-import React, { lazy, Suspense } from "react";
+import React from "react";
 import {
     createBrowserRouter,
     RouterProvider,
     Outlet
 } from "react-router-dom";
+import { Provider } from "react-redux";
+
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
 import Error from "./components/Error";
-import About from "./components/About";
 import Cart from "./components/Cart";
 import Contact from "./components/Contact";
 import useOnlineStatus from "./utils/useOnlineStatus";
 import RestaurantDetails from "./components/restaurantDetail";
-import { Provider } from "react-redux";
-import appStore from "./utils/appStore";
+import appStore from "./utils/store/appStore";
+import Login from "./components/Authentication/login";
+import { GoogleOAuthProvider } from "@react-oauth/google";
 
-// to create a separate bundle
-const Grocery = lazy(() => import("./components/Grocery"))
 
 const AppLayout = () => {
 
@@ -42,10 +42,6 @@ const router = createBrowserRouter([
                 element: <Body />
             },
             {
-                path: "/about",
-                element: <About />
-            },
-            {
                 path: "/contact-us",
                 element: <Contact />
             },
@@ -58,11 +54,8 @@ const router = createBrowserRouter([
                 element: <RestaurantDetails />
             },
             {
-                path: "/grocery",
-                element:
-                    <Suspense fallback={<h1>Loading...</h1>}>
-                        <Grocery />
-                    </Suspense>
+                path: "/login",
+                element: <Login />
             }
         ],
         errorElement: <Error />
@@ -72,7 +65,9 @@ const router = createBrowserRouter([
 
 const root = ReactDOM.createRoot(document.getElementById('demo'));
 root.render(
-    <Provider store={appStore}>
-        <RouterProvider router={router} />
-    </Provider>
+    <GoogleOAuthProvider clientId="210767712784-tg8p82p30m9ljo0t3rr5j0pv3gbgispf.apps.googleusercontent.com">
+        <Provider store={appStore}>
+            <RouterProvider router={router} />
+        </Provider>
+    </GoogleOAuthProvider>
 );

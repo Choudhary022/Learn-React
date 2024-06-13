@@ -11,6 +11,7 @@ const Body = () => {
   const [restaurants, setRestaurants] = useState([]);
   const [filteredRestaurant, setFilteredRestaurant] = useState([]);
   const [searchRestaurant, setSearchRestaurant] = useState('');
+  const [isFilter, setIsFilter] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -31,6 +32,11 @@ const Body = () => {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    if (!isFilter) {
+      setFilteredRestaurant(restaurants)
+    }
+  }, [isFilter])
 
   const handleSearchRestaurant = () => {
     let filteredRes = restaurants.filter(res => res.info.name
@@ -44,9 +50,9 @@ const Body = () => {
   const handleTopRatedRestaurant = () => {
     let filteredRes = restaurants.filter(res => res.info.avgRating >= 4.3)
     setFilteredRestaurant(filteredRes);
+    setIsFilter(true);
   }
 
-  console.log("filteredRestaurants : ", filteredRestaurant);
 
   return (
     <div className="px-2">
@@ -60,6 +66,8 @@ const Body = () => {
             <button className="p-2 bg-orange-400" onClick={handleSearchRestaurant}>search</button>
 
             <button className="p-2  bg-orange-400" onClick={handleTopRatedRestaurant} >Top rated restaurant</button>
+
+            {isFilter && <button className="bg-zinc-400 p-2 hover:bg-amber-100" onClick={() => setIsFilter(false)}>Clear Filter</button>}
           </div>
           <div className="flex flex-wrap ">
             {filteredRestaurant.map((res) => (

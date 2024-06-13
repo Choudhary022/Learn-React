@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 const Header = () => {
 
     // subscribing to the store 
-    const cart=useSelector((store)=>store.cart);
+    const cart = useSelector((store) => store.cart);
 
     return (
         <div className="flex justify-between
@@ -17,10 +17,13 @@ const Header = () => {
             <ul className="flex space-x-10">
                 <li> <Link to="/"> Home</Link></li>
                 <li> <Link to="/contact-us">Contact Us</Link></li>
-                
+
                 <li> <Link to="/cart">Cart({cart.items.length} items)</Link></li>
-                <li> <Link to="/about">About Us </Link></li>
-                <li> <Link to="/grocery">Grocery</Link></li>
+
+                <li><Link to="/user">logout</Link> </li>
+
+                <li> <Link to="/login">login</Link> </li>
+
             </ul>
         </div>
     )

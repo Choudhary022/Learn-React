@@ -6,9 +6,7 @@ import UserContext from "../utils/context/UserContext";
 
 const RestaurantCard = ({ restaurant }) => {
 
-    const {userName}=useContext(UserContext);
 
-    console.log("userName : ",userName);
     const {
         cuisines,
         name,
@@ -31,7 +29,6 @@ const RestaurantCard = ({ restaurant }) => {
                     <div>{sla.deliveryTime} minutes</div>
                 </div>
                 <div className="w-32 truncate">{cuisines.join(',')}</div>
-                 <div>{userName}</div>
                 <div>{areaName}</div>
             </div>
         </div >

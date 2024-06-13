@@ -1,7 +1,7 @@
 import { CDN_URL } from "../../utils/constants";
 import ratingIcon from "../../../assests/Icon/ratingIcon.png";
 import { useDispatch } from "react-redux";
-import { addItem } from "../../utils/cartSlice";
+import { addItem } from "../../utils/store/cartSlice";
 
 const DishCard = ({ item }) => {
 
