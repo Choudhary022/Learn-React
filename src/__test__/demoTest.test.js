@@ -9,4 +9,3 @@ test("sum of two number",()=>{
     expect(result).toBe(5);
 })
 
-
